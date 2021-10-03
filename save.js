@@ -13,6 +13,10 @@ function save(){
     game.base = new OmegaNum(game.base)
     game.gain = new OmegaNum(game.gain)
     game.Gbase = new OmegaNum(game.Gbase)
+    game.t = new OmegaNum(game.t)
+    game.t1r = new OmegaNum(game.t1r)
+    game.time = new OmegaNum(game.time)
+
   }
   function reset(){
     if(confirm("Are you sure you want to do a hard reset?")){
@@ -24,6 +28,8 @@ function save(){
     game.b1r= new OmegaNum(10000)
     game.base= new OmegaNum(2)
     game.gain = new OmegaNum(0)
+    game.t = new OmegaNum(0)
+    game.t1r = new OmegaNum(200)
     game.u1bought = false
     game.u2bought = false
     game.u3bought = false
@@ -32,6 +38,7 @@ function save(){
     game.u6bought = false
     game.u7bought = false
     game.u8bought = false
+    game.u9bought = false
     game.u1m = false
     game.u2m = false
     game.u3m = false  

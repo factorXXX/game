@@ -14,7 +14,7 @@
 	
 	<body>
     <co class = "c1"> You have </co> <co class = "c1"> <span id = "C">10</span> </co><co class = "c1"> coins. </co>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.0.0.3 bug fix
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.0.0.4
     <br>
 	<co class = "g"> You are gaining  </co> <co class = "cps"> <span id = "cps">0</span> </co><co class = "cps"> coins per second. </co>
 	<br><br><br>
@@ -28,9 +28,18 @@
 	You have <span id = "B1">0</span> boosters. 
 	<button class = "buy" onclick = "buyb()">Reset for 1 boosters</button> Cost: <span id = "Bc">10000</span> coins,  Which boost generators Multiplier by <span id = "Bm">1</span>
     </div>
+    <br>
+    <div id = "p2">
+        You have <span id = "T1">0</span> timers. 
+        <button class = "buy" onclick = "buyt()">Reset for 1 timer</button> Cost: <span id = "Tc">200</span> generators,  Which add <span id = "Teff1">0</span> effective booster and add <span id = "Teff2">0</span> to booster base.<span id = "hasu9"></span>
+        </div>
 	<br><br>
 	<div id = "m">
 	You can mastery 1 upgrade only!
+</div>
+<br>
+<div id = "n1">
+	You have <span id = "tam">0</span> time, which boost point gain by <span id = "teff">1</span>
 </div>
 	<br>
 	<div id = "u1">
@@ -95,6 +104,13 @@ Cost: 4e12 Coins<br>
 <button id = "u8" class = "u8" onclick = "buyU8()">Purchased: <span id = "u8b">false</span></button> 
 	</div>
 	<br><br><br>
+	<div id = "u9">
+		<br><br><br><br>
+Timer produce time.&nbsp;<br>
+Cost: 4e19 Coins<br>
+<button id = "u9" class = "u9" onclick = "buyU9()">Purchased: <span id = "u9b">false</span></button> 
+	</div>
+	<br><br><br>
 	<div id = "C1">
 		<br><br><br><br>
         Challenge 1<br>Coin gain is raised to a power of 0.5.<br>Reward: Coin gain is raised to a power of 1.1.<br>In challenge: <span id = "inC1">false</span><br><br>
@@ -107,7 +123,7 @@ Cost: 4e12 Coins<br>
 	</div>
 	<div id = "C3">
 		<br><br><br><br>
-        Challenge 3<br>All upgrade have no effect.<br>Reward: Auto buy Generators and unlock mastery upgrade, generators are cheaper.<br>In challenge: <span id = "inC3">false</span><br><br>
+        Challenge 3<br>All non mastered upgrade have no effect.<br>Reward: Auto buy Generators and unlock mastery upgrade, generators are cheaper.<br>In challenge: <span id = "inC3">false</span><br><br>
         <button id = "C3" class = "C3" onclick = "inC3()">Goal: 3e5 Coins<br>Completed: <span id = "C3c">false</span></button>
 	</div>
 	<br><button class = "save" onclick = "save()">Save</button>
