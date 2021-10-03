@@ -1,34 +1,120 @@
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>???</title>
-</head>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<!-- <link rel="stylesheet" type="text/css" href="interface.css" /> -->
+		<link rel="stylesheet" type="text/css" href="graphics.css" />
+		<meta charset="utf-8">
+		<title>The  Incremental</title>
+		<script type="text/javascript" src="OmegaNum.js" defer></script>
+		<script type="text/javascript" src="save.js" defer></script>
+		<script type="text/javascript" src="game.js" defer></script>
+    <!-- <script type="text/css" src="graphics.css" defer></script> -->
+	</head>
 
-	<div>You have <span id="p">0</span> points</div>
-	<button onclick="p1()">points +1</button>
-    <button onclick="p2()">points x2</button>
-    <button onclick="p3()">points -1</button>
-    <button onclick="p4()">points /2</button>
-    <button onclick="p5()">reset points</button>
-    <button onclick="p6()">???</button>
-    <button onclick="p7()">Infinity</button>
-    <button onclick="p8()">NaN</button>
-    <button onclick="p9()">69420</button>
-    <button onclick="p10()">Rickrool</button>
-
-</body>
-<script>
-function p1() {document.getElementById("p").textContent = (document.getElementById("p").textContent*1+1)}
-function p2() {document.getElementById("p").textContent = (document.getElementById("p").textContent*2)}
-function p3() {document.getElementById("p").textContent = (document.getElementById("p").textContent*1-1)}
-function p4() {document.getElementById("p").textContent = (document.getElementById("p").textContent/2)}
-function p5() {document.getElementById("p").textContent = (document.getElementById("p").textContent=0)}
-function p6() {if(document.getElementById("p").textContent=="69"||document.getElementById("p").textContent=="420") return  document.write("nice")}
-function p7() {document.getElementById("p").textContent = (document.getElementById("p").textContent=1.8e308)}
-function p8() {document.getElementById("p").textContent = (document.getElementById("p").textContent*1+1.8e308*0)}
-function p9() {document.getElementById("p").textContent = (document.getElementById("p").textContent=69420)}
-function p10() {document.write("https://www.youtube.com/watch?v=dQw4w9WgXcQ")}
-</script>
+	
+	<body>
+    <co class = "c1"> You have </co> <co class = "c1"> <span id = "C">10</span> </co><co class = "c1"> coins. </co>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.0.0.3
+    <br>
+	<co class = "g"> You are gaining  </co> <co class = "cps"> <span id = "cps">0</span> </co><co class = "cps"> coins per second. </co>
+	<br><br><br>
+	You have <span id = "G1">0</span> generators. 
+    <button class = "buy" onclick = "buyg1()">Buy 1</button> Cost: <span id = "G1c">10</span> coins,  Multiplier: <span id = "G1m">1</span>x.
+	<div id = "auto">
+		<button class = "auto" onclick = "auto()">Auto: <span id = "autoon">false</span></button>
+	</div>
+	<br>
+	<div id = "p1">
+	You have <span id = "B1">0</span> boosters. 
+	<button class = "buy" onclick = "buyb()">Reset for 1 boosters</button> Cost: <span id = "Bc">10000</span> coins,  Which boost generators Multiplier by <span id = "Bm">1</span>
+    </div>
+	<br><br>
+	<div id = "m">
+	You can mastery 1 upgrade only!
+</div>
+	<br>
+	<div id = "u1">
+        <br><br><br><br>
+Generators boost it Multiplier.&nbsp;<br>
+Cost: 200 Coins<br>
+<button id = "u1" class = "u1" onclick = "buyU1()">Purchased: <span id = "u1b">false</span></button><br> 
+<div id = "m1">
+	<button id = "u1m" class = "u1m" onclick = "mU1()">Mastered: <span id = "u1mb">false</span></button> 
+</div>
+	</div>
+	<div id = "u2">
+        <br><br><br><br>
+Coin boost Generators Multiplier.&nbsp;<br>
+Cost: 1250 Coins<br>
+<button id = "u2" class = "u2" onclick = "buyU2()">Purchased: <span id = "u2b">false</span></button><br>
+<div id = "m2">
+	<button id = "u2m" class = "u2m" onclick = "mU2()">Mastered: <span id = "u2mb">false</span></button> 
+</div>
+	</div>
+	<div id = "u3">
+        <br><br><br><br>
+Generators boost booster base.&nbsp;<br>
+Cost: 25000 Coins<br>
+<button id = "u3" class = "u3" onclick = "buyU3()">Purchased: <span id = "u3b">false</span></button> <br>
+<div id = "m3">
+	<button id = "u3m" class = "u3m" onclick = "mU3()">Mastered: <span id = "u3mb">false</span></button> 
+</div>
+	</div>
+	<div id = "u4">
+        <br><br><br><br>
+Generators cost scale slower.&nbsp;<br>
+Cost: 500000 Coins<br>
+<button id = "u4" class = "u4" onclick = "buyU4()">Purchased: <span id = "u4b">false</span></button> <br>
+<div id = "m4">
+	<button id = "u4m" class = "u4m" onclick = "mU4()">Mastered: <span id = "u4mb">false</span></button> 
+</div>
+	</div>
+<br><br><br>
+	<div id = "u5">
+        <br><br><br><br>
+Keep upgrade on booster reset and first upgrade is stronger.&nbsp;<br>
+Cost: 1e6 Coins<br>
+<button id = "u5" class = "u5" onclick = "buyU5()">Purchased: <span id = "u5b">false</span></button>
+	</div>
+	<div id = "u6">
+		<br><br><br><br>
+Unlock challenge and second upgrade is stronger.&nbsp;<br>
+Cost: 1e7 Coins<br>
+<button id = "u6" class = "u6" onclick = "buyU6()">Purchased: <span id = "u6b">false</span></button> 
+	</div>
+	<div id = "u7">
+		<br><br><br><br>
+Third upgrade is stronger.&nbsp;<br>
+Cost: 1e10 Coins<br>
+<button id = "u7" class = "u7" onclick = "buyU7()">Purchased: <span id = "u7b">false</span></button> 
+	</div>
+	<div id = "u8">
+		<br><br><br><br>
+Fourth upgrade is stronger.&nbsp;<br>
+Cost: 4e12 Coins<br>
+<button id = "u8" class = "u8" onclick = "buyU8()">Purchased: <span id = "u8b">false</span></button> 
+	</div>
+	<br><br><br>
+	<div id = "C1">
+		<br><br><br><br>
+        Challenge 1<br>Coin gain is raised to a power of 0.5.<br>Reward: Coin gain is raised to a power of 1.1.<br>In challenge: <span id = "inC1">false</span><br><br>
+        <button id = "C1" class = "C1" onclick = "inC1()">Goal: 1e5 Coins<br>Completed: <span id = "C1c">false</span></button>
+	</div>
+	<div id = "C2">
+		<br><br><br><br>
+        Challenge 2<br>Booster has no effect.<br>Reward: Generators divide boosters cost.<br>In challenge: <span id = "inC2">false</span><br><br>
+        <button id = "C2" class = "C2" onclick = "inC2()">Goal: 2.5e6 Coins<br>Completed: <span id = "C2c">false</span></button>
+	</div>
+	<div id = "C3">
+		<br><br><br><br>
+        Challenge 3<br>All upgrade have no effect.<br>Reward: Auto buy Generators and unlock mastery upgrade, generators are cheaper.<br>In challenge: <span id = "inC3">false</span><br><br>
+        <button id = "C3" class = "C3" onclick = "inC3()">Goal: 3e5 Coins<br>Completed: <span id = "C3c">false</span></button>
+	</div>
+	<br><button class = "save" onclick = "save()">Save</button>
+	<button class = "reset" onclick = "reset()">HARD RESET</button>
+    
+    
+    
+		
+	</body>
 </html>
