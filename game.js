@@ -426,7 +426,7 @@ if(game.u9bought) game.time=game.time.add(game.t.pow(2).times(0.04))
       document.getElementById('hasu9').innerHTML=" Your timer also produce "+game.t.pow(2)+" time per second.";
     }
     else     
-    document.getElementById('has9').innerHTML="";
+    document.getElementById('hasu9').innerHTML="";
 
     if(game.g1.gte("10")||game.b.gte(1)||game.t.gte(1)) {
       document.getElementById('p1').style.display = 'inline-block';
