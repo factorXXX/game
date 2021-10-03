@@ -29,6 +29,7 @@ function save(){
     game.base= new OmegaNum(2)
     game.gain = new OmegaNum(0)
     game.t = new OmegaNum(0)
+    game.time = new OmegaNum(0)
     game.t1r = new OmegaNum(200)
     game.u1bought = false
     game.u2bought = false
