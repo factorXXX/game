@@ -427,7 +427,11 @@ if(game.u9bought) game.time=game.time.add(game.t.pow(2).times(0.04))
     }
     else     
     document.getElementById('hasu9').innerHTML="";
-
+    if(game.u9bought) {
+      document.getElementById('n1').innerHTML=" Your timer also produce "+game.t.pow(2)+" time per second.";
+    }
+    else     
+    document.getElementById('n1').innerHTML="";
     if(game.g1.gte("10")||game.b.gte(1)||game.t.gte(1)) {
       document.getElementById('p1').style.display = 'inline-block';
     }
@@ -445,6 +449,7 @@ if(game.u9bought) game.time=game.time.add(game.t.pow(2).times(0.04))
     }
     else     
     document.getElementById('auto').style.display = 'none';
+
     if(game.C3complete) {document.getElementById('m').style.display = 'inline-block';} else document.getElementById('m').style.display = 'none';
     if(game.C3complete) {document.getElementById('m1').style.display = 'inline-block';} else document.getElementById('m1').style.display = 'none';
     if(game.C3complete) {document.getElementById('m2').style.display = 'inline-block';} else document.getElementById('m2').style.display = 'none';
