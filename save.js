@@ -40,6 +40,7 @@ function save(){
     game.u7bought = false
     game.u8bought = false
     game.u9bought = false
+    game.u10bought = false
     game.u1m = false
     game.u2m = false
     game.u3m = false  
