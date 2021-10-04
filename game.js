@@ -16,7 +16,6 @@ class Player {
         this.Gscalepow = new OmegaNum(1.25)
         this.Gbase = new OmegaNum(1.5)
         this.gain = new OmegaNum(0)
-        this.timeeff=new OmegaNum(0)
         this.u1bought = false
         this.u2bought = false
         this.u3bought = false
