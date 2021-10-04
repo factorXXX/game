@@ -1,40 +1,48 @@
-game = {
-  c: new OmegaNum(10), 
-  g1: new OmegaNum(0),
-  g1c: new OmegaNum(10),
-  g1m: new OmegaNum(1),
-  b1r: new OmegaNum(10000),
-  b: new OmegaNum(0),
-  t: new OmegaNum(0),
-  time: new OmegaNum(0),
-  t1r: new OmegaNum(200),
-  base: new OmegaNum(2),
-  Gscalepow: new OmegaNum(1.25),
-  Gbase:new OmegaNum(1.5),
-  u1bought:false,
-  u2bought:false,
-  u3bought:false,
-  u4bought:false,
-  u5bought:false,
-  u6bought:false,
-  u7bought:false,
-  u8bought:false,
-  u9bought:false,
-  u1m:false,
-  u2m:false,
-  u3m:false,
-  u4m:false,
-  inC1:false,
-  inC2:false,
-  inC3:false,
-  C1complete:false,
-  C2complete:false,
-  C3complete:false,
-  auto:false,
-  gain: new OmegaNum(10), 
-  cap:false,
 
-};
+
+class Player {
+  constructor() {
+        this.c = new OmegaNum(10)
+        this.g1 = new OmegaNum(0)
+        this.g1c = new OmegaNum(10)
+        this.g1m = new OmegaNum(1)
+        this.b1r = new OmegaNum(10000)
+        this.b = new OmegaNum(0)
+        this.t = new OmegaNum(0)
+        this.time = new OmegaNum(0)
+        this.tgain = new OmegaNum(0)
+        this.t1r = new OmegaNum(200)
+        this.base = new OmegaNum(2)
+        this.Gscalepow = new OmegaNum(1.25)
+        this.Gbase = new OmegaNum(1.5)
+        this.gain = new OmegaNum(0)
+        this.timeeff=new OmegaNum(0)
+        this.u1bought = false
+        this.u2bought = false
+        this.u3bought = false
+        this.u4bought = false
+        this.u5bought = false
+        this.u6bought = false
+        this.u7bought = false
+        this.u8bought = false
+        this.u9bought = false
+        this.u10bought = false
+        this.u1m = false
+        this.u2m = false
+        this.u3m = false
+        this.u4m = false
+        this.inC1 = false
+        this.inC2 = false
+        this.inC3 = false
+        this.C1complete = false
+        this.C2complete = false
+        this.C3complete = false
+        this.auto = false
+        this.cap = false
+  }
+}
+var game = new Player()
+
 function makeC(a) {
     game.c = game.c.add(a);
 }
@@ -85,6 +93,7 @@ function buyt() {
     game.inC1=false
     game.inC2=false
     game.inC3=false
+    game.auto=false
     game.t=game.t.add(1)
   
   }
@@ -148,6 +157,12 @@ function buyU9() {
   if(game.c.gte(4e19)&&!game.u9bought){
   game.c= game.c.sub(4e19);
   game.u9bought=true
+  }
+} 
+function buyU9() {
+  if(game.c.gte(4e25)&&!game.u10bought){
+  game.c= game.c.sub(4e25);
+  game.u10bought=true
   }
 } 
 
@@ -270,7 +285,7 @@ game.auto=!game.auto
 
   setInterval(function() {
     makeC(game.gain.div(25))
-if(game.u9bought) game.time=game.time.add(game.t.pow(2).times(0.04))
+if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     game.g1c=new OmegaNum(10).times(new OmegaNum(game.Gbase).pow(game.g1.pow(game.Gscalepow)))
     document.getElementById('C').innerHTML=game.c.round().toHyperE();
     document.getElementById('G1c').innerHTML=game.g1c.round().toHyperE();
@@ -280,10 +295,10 @@ if(game.u9bought) game.time=game.time.add(game.t.pow(2).times(0.04))
     document.getElementById('Bc').innerHTML=game.b1r.round().toHyperE();
     document.getElementById('Tc').innerHTML=game.t1r.round().toHyperE();
     document.getElementById('T1').innerHTML=game.t.round().toHyperE();
-    document.getElementById('Teff1').innerHTML=game.t.round().toHyperE();
-    document.getElementById('Teff2').innerHTML=game.t.pow(1.6).round().toHyperE();
+    document.getElementById('Teff1').innerHTML=game.t.pow(0.8).toHyperE();
+    document.getElementById('Teff2').innerHTML=game.t.pow(1.6).toHyperE();
     document.getElementById('tam').innerHTML=game.time.round().toHyperE();
-    document.getElementById('teff').innerHTML=game.time.add(1).logBase(2).pow(1.25).add(1).toHyperE();
+    document.getElementById('teff').innerHTML=game.timeeff.toHyperE();
     if(!game.inC2) document.getElementById('Bm').innerHTML=new OmegaNum(game.base).pow(game.b.add(game.t)).round().toHyperE();
     else document.getElementById('Bm').innerHTML=new OmegaNum(1)
 
@@ -315,6 +330,9 @@ if(game.u9bought) game.time=game.time.add(game.t.pow(2).times(0.04))
 
     if(!game.u9bought) document.getElementById('u9b').innerHTML="false"
     else document.getElementById('u9b').innerHTML="true"
+
+    if(!game.u10bought) document.getElementById('u10b').innerHTML="false"
+    else document.getElementById('u10b').innerHTML="true"
 
     if(!game.inC1) document.getElementById('inC1').innerHTML="false"
     else document.getElementById('inC1').innerHTML="true"
@@ -404,6 +422,12 @@ if(game.u9bought) game.time=game.time.add(game.t.pow(2).times(0.04))
     else     
     document.getElementById('u9').style.display = 'none';
 
+    if(game.b.gte("11")||game.u10bought) {
+      document.getElementById('u10').style.display = 'inline-block';
+    }
+    else     
+    document.getElementById('u10').style.display = 'none';
+
     if(game.u6bought||game.inC1) {
       document.getElementById('C1').style.display = 'inline-block';
     }
@@ -427,11 +451,13 @@ if(game.u9bought) game.time=game.time.add(game.t.pow(2).times(0.04))
     }
     else     
     document.getElementById('hasu9').innerHTML="";
-    if(game.u9bought) {
-      document.getElementById('n1').innerHTML=" Your timer also produce "+game.t.pow(2)+" time per second.";
+
+    if(game.u9bought||game.time.gte(1)) {
+      document.getElementById('n1').style.display = 'inline-block';
     }
     else     
-    document.getElementById('n1').innerHTML="";
+    document.getElementById('n1').style.display = 'none';
+
     if(game.g1.gte("10")||game.b.gte(1)||game.t.gte(1)) {
       document.getElementById('p1').style.display = 'inline-block';
     }
@@ -477,7 +503,7 @@ else if(game.u1bought&&!game.inC3) m=m.times(game.g1.add(1).log10().times(2).add
 if(game.u2m&&game.u2bought) m=m.times(game.c.add(1).logBase(1.5).pow(1.5).add(1))
 else if(game.u2bought&&game.u6bought&&!game.inC3) m=m.times(game.c.add(1).logBase(1.5).times(2).add(1))
 else if(game.u2bought&&!game.inC3) m=m.times(game.c.add(1).log10().add(1))
-if(!game.inC2) m=m.times(new OmegaNum(game.base).pow(game.b.add(game.t)))
+if(!game.inC2) m=m.times(new OmegaNum(game.base).pow(game.b.add(game.t.pow(0.8))))
 game.g1m=m
   },1)
 
@@ -497,8 +523,8 @@ setInterval(function() {
 
 setInterval(function() {
   let Gain=game.g1.times(game.g1m)
-  if(game.inC1) Gain=Gain.pow(0.5)
- Gain=Gain.times(game.time.add(1).logBase(2).pow(1.25).add(1))
+ Gain=Gain.times(game.timeeff)
+ if(game.inC1) Gain=Gain.pow(0.5)
   if(game.C1complete) Gain=Gain.pow(1.1)
 
   game.gain=Gain
@@ -510,7 +536,7 @@ setInterval(function() {
     },1)
 
  setInterval(function() {
-    let Req=new OmegaNum(200).times(new OmegaNum(1.6).pow(game.t.pow(1.5)))
+    let Req=new OmegaNum(200).times(new OmegaNum(1.325).pow(game.t.pow(1.5)))
     game.t1r=Req
         },1)
 setInterval(function() {
@@ -518,7 +544,17 @@ setInterval(function() {
   if(game.auto&&level.gte(game.g1)) game.g1=level
 
     },1)
-
+setInterval(function() {
+  let gain=game.t.pow(2)
+  if(game.u10bought) gain=gain.times(game.b.add(1))
+  game.tgain=gain
+    },1)
+setInterval(function() {
+  let pow=new OmegaNum(1.25)
+  if(game.u10bought) pow=new OmegaNum(2.2)
+  let eff=game.time.add(1).logBase(2).pow(pow).add(1)
+game.timeeff=eff
+  },1)    
 setInterval(function() {   
 save()
 },2500)

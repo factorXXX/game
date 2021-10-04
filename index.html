@@ -14,7 +14,7 @@
 	
 	<body>
     <co class = "c1"> You have </co> <co class = "c1"> <span id = "C">10</span> </co><co class = "c1"> coins. </co>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.0.0.4
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.0.0.5
     <br>
 	<co class = "g"> You are gaining  </co> <co class = "cps"> <span id = "cps">0</span> </co><co class = "cps"> coins per second. </co>
 	<br><br><br>
@@ -39,76 +39,53 @@
 </div>
 <br>
 <div id = "n1">
-	You have <span id = "tam">0</span> time, which boost point gain by <span id = "teff">1</span>
+	You have <span id = "tam">0</span> time, which boost coin gain by <span id = "teff">1</span>
 </div>
 	<br>
 	<div id = "u1">
-        <br><br><br><br>
-Generators boost it Multiplier.&nbsp;<br>
-Cost: 200 Coins<br>
-<button id = "u1" class = "u1" onclick = "buyU1()">Purchased: <span id = "u1b">false</span></button><br> 
+<button id = "u1" class = "u" onclick = "buyU1()">&nbsp;&nbsp;&nbsp;&nbsp;Generators boost it Multiplier.&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br>Cost: 200 Coins<br><br>Purchased: <span id = "u1b">false</span></button><br> 
 <div id = "m1">
-	<button id = "u1m" class = "u1m" onclick = "mU1()">Mastered: <span id = "u1mb">false</span></button> 
+	<button id = "u1m" class = "mas" onclick = "mU1()">Mastered: <span id = "u1mb">false</span></button> 
 </div>
 	</div>
 	<div id = "u2">
-        <br><br><br><br>
-Coin boost Generators Multiplier.&nbsp;<br>
-Cost: 1250 Coins<br>
-<button id = "u2" class = "u2" onclick = "buyU2()">Purchased: <span id = "u2b">false</span></button><br>
+<button id = "u2" class = "u" onclick = "buyU2()">&nbsp;Coin boost Generators Multiplier.&nbsp;<br><br>Cost: 1250 Coins<br><br><br>Purchased: <span id = "u2b">false</span></button><br>
 <div id = "m2">
-	<button id = "u2m" class = "u2m" onclick = "mU2()">Mastered: <span id = "u2mb">false</span></button> 
+	<button id = "u2m" class = "mas" onclick = "mU2()">Mastered: <span id = "u2mb">false</span></button> 
 </div>
 	</div>
 	<div id = "u3">
-        <br><br><br><br>
-Generators boost booster base.&nbsp;<br>
-Cost: 25000 Coins<br>
-<button id = "u3" class = "u3" onclick = "buyU3()">Purchased: <span id = "u3b">false</span></button> <br>
+<button id = "u3" class = "u" onclick = "buyU3()">&nbsp;Generators boost booster base.&nbsp;<br><br>Cost: 25000 Coins<br><br><br>Purchased: <span id = "u3b">false</span></button> <br>
 <div id = "m3">
-	<button id = "u3m" class = "u3m" onclick = "mU3()">Mastered: <span id = "u3mb">false</span></button> 
+	<button id = "u3m" class = "mas" onclick = "mU3()">Mastered: <span id = "u3mb">false</span></button> 
 </div>
 	</div>
 	<div id = "u4">
-        <br><br><br><br>
-Generators cost scale slower.&nbsp;<br>
-Cost: 500000 Coins<br>
-<button id = "u4" class = "u4" onclick = "buyU4()">Purchased: <span id = "u4b">false</span></button> <br>
+<button id = "u4" class = "u" onclick = "buyU4()">&nbsp;&nbsp;&nbsp;&nbsp;Generators cost scale slower.&nbsp;&nbsp;&nbsp;&nbsp;<br><br>Cost: 500000 Coins<br><br><br>Purchased: <span id = "u4b">false</span></button> <br>
 <div id = "m4">
-	<button id = "u4m" class = "u4m" onclick = "mU4()">Mastered: <span id = "u4mb">false</span></button> 
+	<button id = "u4m" class = "mas" onclick = "mU4()">Mastered: <span id = "u4mb">false</span></button> 
 </div>
 	</div>
-<br><br><br>
+	<br>
 	<div id = "u5">
-        <br><br><br><br>
-Keep upgrade on booster reset and first upgrade is stronger.&nbsp;<br>
-Cost: 1e6 Coins<br>
-<button id = "u5" class = "u5" onclick = "buyU5()">Purchased: <span id = "u5b">false</span></button>
+<button id = "u5" class = "u" onclick = "buyU5()">Keep upgrade on booster reset and<br> first upgrade is stronger.<br><br>&nbsp;Cost: 1e6 Coins<br><br>Purchased: <span id = "u5b">false</span></button>
 	</div>
 	<div id = "u6">
-		<br><br><br><br>
-Unlock challenge and second upgrade is stronger.&nbsp;<br>
-Cost: 1e7 Coins<br>
-<button id = "u6" class = "u6" onclick = "buyU6()">Purchased: <span id = "u6b">false</span></button> 
+<button id = "u6" class = "u" onclick = "buyU6()">&nbsp;&nbsp;&nbsp;&nbsp;Unlock challenge and second&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>upgrade is stronger.&nbsp;&nbsp;<br><br>Cost: 1e7 Coins<br><br>Purchased: <span id = "u6b">false</span></button> 
 	</div>
 	<div id = "u7">
 		<br><br><br><br>
-Third upgrade is stronger.&nbsp;<br>
-Cost: 1e10 Coins<br>
-<button id = "u7" class = "u7" onclick = "buyU7()">Purchased: <span id = "u7b">false</span></button> 
+<button id = "u7" class = "u" onclick = "buyU7()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Third upgrade is stronger.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>Cost: 1e10 Coins<br><br><br>Purchased: <span id = "u7b">false</span></button> 
 	</div>
 	<div id = "u8">
-		<br><br><br><br>
-Fourth upgrade is stronger.&nbsp;<br>
-Cost: 4e12 Coins<br>
-<button id = "u8" class = "u8" onclick = "buyU8()">Purchased: <span id = "u8b">false</span></button> 
+<button id = "u8" class = "u" onclick = "buyU8()">&nbsp;&nbsp;&nbsp;&nbsp;Fourth upgrade is stronger.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>Cost: 4e12 Coins<br><br><br>Purchased: <span id = "u8b">false</span></button> 
 	</div>
 	<br><br><br>
 	<div id = "u9">
-		<br><br><br><br>
-Timer produce time.&nbsp;<br>
-Cost: 4e19 Coins<br>
-<button id = "u9" class = "u9" onclick = "buyU9()">Purchased: <span id = "u9b">false</span></button> 
+<button id = "u9" class = "u" onclick = "buyU9()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Timer produce time.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>Cost: 4e19 Coins<br><br><br>Purchased: <span id = "u9b">false</span></button> 
+	</div>
+	<div id = "u10">
+<button id = "u10" class = "u" onclick = "buyU10()">Booster boost time gain and improve<br> time effect formula.<br><br>Cost: 4e25 Coins<br><br>Purchased: <span id = "u10b">false</span></button> 
 	</div>
 	<br><br><br>
 	<div id = "C1">
