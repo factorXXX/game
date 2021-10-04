@@ -42,7 +42,46 @@ class Player {
   }
 }
 var game = new Player()
+game = {
+  c: new OmegaNum(10), 
+  g1: new OmegaNum(0),
+  g1c: new OmegaNum(10),
+  g1m: new OmegaNum(1),
+  b1r: new OmegaNum(10000),
+  b: new OmegaNum(0),
+  t: new OmegaNum(0),
+  time: new OmegaNum(0),
+  tgain: new OmegaNum(0),
+  t1r: new OmegaNum(200),
+  base: new OmegaNum(2),
+  Gscalepow: new OmegaNum(1.25),
+  Gbase:new OmegaNum(1.5),
 
+  u1bought:false,
+  u2bought:false,
+  u3bought:false,
+  u4bought:false,
+  u5bought:false,
+  u6bought:false,
+  u7bought:false,
+  u8bought:false,
+  u9bought:false,
+  u10bought:false,
+  u1m:false,
+  u2m:false,
+  u3m:false,
+  u4m:false,
+  inC1:false,
+  inC2:false,
+  inC3:false,
+  C1complete:false,
+  C2complete:false,
+  C3complete:false,
+  auto:false,
+  gain: new OmegaNum(10), 
+  cap:false,
+
+};
 function makeC(a) {
     game.c = game.c.add(a);
 }
