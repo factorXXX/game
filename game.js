@@ -423,10 +423,10 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     document.getElementById('u9').style.display = 'none';
 
     if(game.b.gte("11")||game.u10bought) {
-      document.getElementById('u10').style.display = 'inline-block';
+      document.getElementById('au1').style.display = 'inline-block';
     }
     else     
-    document.getElementById('u10').style.display = 'none';
+    document.getElementById('au1').style.display = 'none';
 
     if(game.u6bought||game.inC1) {
       document.getElementById('C1').style.display = 'inline-block';
