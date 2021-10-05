@@ -8,6 +8,7 @@ class Player {
         this.b = new OmegaNum(0)
         this.t = new OmegaNum(0)
         this.time = new OmegaNum(0)
+        this.timeeff = new OmegaNum(0)
         this.tgain = new OmegaNum(0)
         this.t1r = new OmegaNum(200)
         this.base = new OmegaNum(2)
