@@ -25,6 +25,7 @@ class Player {
         this.u8bought = false
         this.u9bought = false
         this.u10bought = false
+        this.u11bought = false
         this.u1m = false
         this.u2m = false
         this.u3m = false
@@ -37,6 +38,7 @@ class Player {
         this.C3complete = false
         this.auto = false
         this.cap = false
+        this.cap2 = new OmegaNum(1)
   }
 }
 var game = new Player()
@@ -157,50 +159,67 @@ function buyU9() {
   game.u9bought=true
   }
 } 
-function buyU9() {
+function buyU10() {
   if(game.c.gte(4e25)&&!game.u10bought){
   game.c= game.c.sub(4e25);
   game.u10bought=true
   }
 } 
 
+function buyU11() {
+  if(game.c.gte(1e28)&&!game.u11bought){
+  game.c= game.c.sub(1e28);
+  game.u11bought=true
+
+  }
+} 
+
 function mU1() {
   if(game.u1m){
   game.cap=false
+if(game.u11bought)  game.cap2=game.cap2.plus(1)
   game.u1m=false
   }
-  else if(!game.cap){
-    game.cap=true
+  else if(!game.cap&&game.cap2.gte(1)){
+    if(!game.u11bought)game.cap=true
     game.u1m=true
+    if(game.u11bought)  game.cap2=game.cap2.sub(1)
   }
 } 
 function mU2() {
   if(game.u2m){
   game.cap=false
+if(game.u11bought)  game.cap2=game.cap2.plus(1)
   game.u2m=false
   }
-  else if(!game.cap){
-    game.cap=true
+  else if(!game.cap&&game.cap2.gte(1)){
+    if(!game.u11bought)game.cap=true
     game.u2m=true
+    if(game.u11bought)  game.cap2=game.cap2.sub(1)
   }
-} function mU3() {
+} 
+function mU3() {
   if(game.u3m){
   game.cap=false
+if(game.u11bought)  game.cap2=game.cap2.plus(1)
   game.u3m=false
   }
-  else if(!game.cap){
-    game.cap=true
+  else if(!game.cap&&game.cap2.gte(1)){
+    if(!game.u11bought) game.cap=true
     game.u3m=true
+    if(game.u11bought)  game.cap2=game.cap2.sub(1)
   }
 } 
 function mU4() {
   if(game.u4m){
   game.cap=false
+if(game.u11bought)  game.cap2=game.cap2.plus(1)
   game.u4m=false
   }
-  else if(!game.cap){
-    game.cap=true
+  else if(!game.cap&&game.cap2.gte(1)){
+    if(!game.u11bought)game.cap=true
     game.u4m=true
+    if(game.u11bought)  game.cap2=game.cap2.sub(1)
   }
 } 
 function inC1() {
@@ -332,6 +351,9 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     if(!game.u10bought) document.getElementById('u10b').innerHTML="false"
     else document.getElementById('u10b').innerHTML="true"
 
+    if(!game.u11bought) document.getElementById('u11b').innerHTML="false"
+    else document.getElementById('u11b').innerHTML="true"
+
     if(!game.inC1) document.getElementById('inC1').innerHTML="false"
     else document.getElementById('inC1').innerHTML="true"
 
@@ -421,10 +443,16 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     document.getElementById('u9').style.display = 'none';
 
     if(game.b.gte("11")||game.u10bought) {
-      document.getElementById('au1').style.display = 'inline-block';
+      document.getElementById('u10').style.display = 'inline-block';
     }
     else     
-    document.getElementById('au1').style.display = 'none';
+    document.getElementById('u10').style.display = 'none';
+
+    if(game.g1.gte("340")||game.u11bought) {
+      document.getElementById('u11').style.display = 'inline-block';
+    }
+    else     
+    document.getElementById('u11').style.display = 'none';
 
     if(game.u6bought||game.inC1) {
       document.getElementById('C1').style.display = 'inline-block';
