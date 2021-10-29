@@ -33,9 +33,17 @@ class Player {
         this.inC1 = false
         this.inC2 = false
         this.inC3 = false
+        this.inC4 = false
+        this.C1times = new OmegaNum(0) 
+        this.C2times = new OmegaNum(0) 
+        this.C3times = new OmegaNum(0) 
+        this.C1goal = new OmegaNum(1e16) 
+        this.C2goal = new OmegaNum(1e14) 
+        this.C3goal = new OmegaNum(1e36) 
         this.C1complete = false
         this.C2complete = false
         this.C3complete = false
+        this.C4complete = false
         this.auto = false
         this.cap = false
         this.cap2 = new OmegaNum(3)
@@ -227,7 +235,10 @@ if(game.u11bought)  game.cap2=game.cap2.plus(1)
 } 
 function inC1() {
 
-
+  if(game.inC4){
+alert("You can't exit this challenge while you are in Challenge 4!")
+  }
+  else 
   if(!game.inC1){ 
     game.c = new OmegaNum(10);
     game.g1=new OmegaNum(0)
@@ -251,7 +262,10 @@ function inC1() {
 } 
 
 function inC2() {
-
+  if(game.inC4){
+    alert("You can't exit this challenge while you are in Challenge 4!")
+      }
+      else 
 
   if(!game.inC2){ 
     game.c = new OmegaNum(10);
@@ -276,7 +290,10 @@ function inC2() {
 } 
 
 function inC3() {
-
+  if(game.inC4){
+    alert("You can't exit this challenge while you are in Challenge 4!")
+      }
+      else 
   if(!game.inC3){ 
     game.c = new OmegaNum(10);
     game.g1=new OmegaNum(0)
@@ -298,7 +315,37 @@ function inC3() {
   }
   
 } 
+function inC4() {
+  if(!game.inC4){ 
+    game.c = new OmegaNum(10);
+    game.g1=new OmegaNum(0)
+    game.inC1=true
+    game.inC2=true
+    game.inC3=true
+    game.inC4=true
+  
+  }
+  else if(game.c.gte(2.5e6)&&game.inC4){
+    game.c = new OmegaNum(10);
+    game.g1=new OmegaNum(0)
+    game.C4complete=true
+    game.inC1=false
+    game.inC2=false
+    game.inC3=false
+    game.inC4=false
 
+  }  
+  else if(confirm("Are you sure you want to exit challenge early?")){ 
+    game.c = new OmegaNum(10);
+    game.g1=new OmegaNum(0)
+    game.inC1=false
+    game.inC2=false
+    game.inC3=false
+    game.inC4=false
+
+  }
+  
+} 
 function auto() {
 game.auto=!game.auto
 } 
@@ -357,14 +404,20 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     if(!game.u11bought) document.getElementById('u11b').innerHTML="false"
     else document.getElementById('u11b').innerHTML="true"
 
-    if(!game.inC1) document.getElementById('inC1').innerHTML="false"
+    if(game.inC4) document.getElementById('inC1').innerHTML="Trapped"
+    else if(!game.inC1) document.getElementById('inC1').innerHTML="false"
     else document.getElementById('inC1').innerHTML="true"
 
-    if(!game.inC2) document.getElementById('inC2').innerHTML="false"
+    if(game.inC4) document.getElementById('inC2').innerHTML="Trapped"
+   else if(!game.inC2) document.getElementById('inC2').innerHTML="false"
     else document.getElementById('inC2').innerHTML="true"
 
-    if(!game.inC3) document.getElementById('inC3').innerHTML="false"
+    if(game.inC4) document.getElementById('inC3').innerHTML="Trapped"
+   else if(!game.inC3) document.getElementById('inC3').innerHTML="false"
     else document.getElementById('inC3').innerHTML="true"
+
+    if(!game.inC4) document.getElementById('inC4').innerHTML="false"
+    else document.getElementById('inC4').innerHTML="true"
 
     if(!game.C1complete) document.getElementById('C1c').innerHTML="false"
     else document.getElementById('C1c').innerHTML="true"
@@ -375,6 +428,9 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     
     if(!game.C3complete) document.getElementById('C3c').innerHTML="false"
     else document.getElementById('C3c').innerHTML="true"
+
+    if(!game.C4complete) document.getElementById('C4c').innerHTML="false"
+    else document.getElementById('C4c').innerHTML="true"
 
     if(!game.auto) document.getElementById('autoon').innerHTML="false"
     else document.getElementById('autoon').innerHTML="true"
@@ -505,6 +561,12 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     else     
     document.getElementById('auto').style.display = 'none';
 
+    if(game.u6bought) {
+      document.getElementById('tab3').style.display = 'inline-block';
+    }
+    else     
+    document.getElementById('tab3').style.display = 'none';
+
     if(game.C3complete) {document.getElementById('m').style.display = 'inline-block';} else document.getElementById('m').style.display = 'none';
     if(game.C3complete) {document.getElementById('m1').style.display = 'inline-block';} else document.getElementById('m1').style.display = 'none';
     if(game.C3complete) {document.getElementById('m2').style.display = 'inline-block';} else document.getElementById('m2').style.display = 'none';
@@ -587,3 +649,10 @@ game.timeeff=eff
 setInterval(function() {   
 save()
 },2500)
+function tab(tab) {
+	document.getElementById("Main").style.display = "none";
+	document.getElementById("Challenge").style.display = "none";
+  document.getElementById("Upgrade").style.display = "none";
+	document.getElementById("Options").style.display = "none";
+	document.getElementById(tab).style.display = "inline-block";
+}

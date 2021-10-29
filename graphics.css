@@ -4,15 +4,15 @@ button.u {
     margin: 4px 2px;
     background-color: #ffee00;
     color: #000000;
-    font-size: 12px;
+    font-size: 10px;
   }
-  button.u.hover {
+  button.u:hover {
     border: none;
     padding: 6px 10px;
     margin: 4px 2px;
-    background-color: #eedd00;
+    background-color: #ccbb00;
     color: #000000;
-    font-size: 12px;
+    font-size: 10px;
     cursor: pointer;
   }
   button.mas {
@@ -21,14 +21,30 @@ button.u {
     margin: 4px 2px;
     background-color: #ff0000;
     color: #000000;
-    font-size: 12px;
+    font-size: 10px;
   }
-  button.mas.hover {
+  button.mas:hover {
     border: none;
     padding: 6px 10px;
     margin: 4px 2px;
-    background-color: #ee0000;
+    background-color: #cc0000;
     color: #000000;
-    font-size: 12px;
+    font-size: 10px;
     cursor: pointer;
+  }
+  button.c {
+    border: none;
+    padding: 6px 10px;
+    margin: 4px 2px;
+    background-color: #ff00ff;
+    color: #000000;
+    font-size: 10px;
+  }
+  button.c:hover {
+    border: none;
+    padding: 6px 10px;
+    margin: 4px 2px;
+    background-color: #cc00cc;
+    color: #000000;
+    font-size: 10px;
   }

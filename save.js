@@ -17,7 +17,12 @@ function save(){
     game.t1r = new OmegaNum(game.t1r)
     game.time = new OmegaNum(game.time)
     game.cap2 = new OmegaNum(game.cap2)
-
+    game.C1times = new OmegaNum(game.C1times)
+    game.C2times = new OmegaNum(game.C2times)
+    game.C3times = new OmegaNum(game.C3times)
+    game.C1goal = new OmegaNum(game.C1goal)
+    game.C2goal= new OmegaNum(game.C2goal)
+    game.C3goal = new OmegaNum(game.C3goal)
   }
   function reset(){
     if(confirm("Are you sure you want to do a hard reset?")){
@@ -25,4 +30,9 @@ function save(){
     load()
     }
   }
-  window.onload=function(){load()}
+  window.onload=function(){load()
+  	document.getElementById("Main").style.display = "inline-block";
+	document.getElementById("Challenge").style.display = "none";
+  document.getElementById("Upgrade").style.display = "none";
+	document.getElementById("Options").style.display = "none";
+  }

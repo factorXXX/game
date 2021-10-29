@@ -13,11 +13,18 @@
 
 	
 	<body>
+		<button class = "tab1" onclick="tab('Main')">Main</button>
+			<button class = "tab2" onclick="tab('Upgrade')">Upgrades</button>
+      <button class = "tab3" onclick = "tab('Challenge')">Challenges</button>
+			<button class = "tab4" onclick="tab('Options')">Options</button>
+<br><br>
     <co class = "c1"> You have </co> <co class = "c1"> <span id = "C">10</span> </co><co class = "c1"> coins. </co>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.0.0.5
     <br>
+	<br>
 	<co class = "g"> You are gaining  </co> <co class = "cps"> <span id = "cps">0</span> </co><co class = "cps"> coins per second. </co>
 	<br><br><br>
+	<div id = "Main">
 	You have <span id = "G1">0</span> generators. 
     <button class = "buy" onclick = "buyg1()">Buy 1</button> Cost: <span id = "G1c">10</span> coins,  Multiplier: <span id = "G1m">1</span>x.
 	<div id = "auto">
@@ -41,7 +48,9 @@
 <div id = "n1">
 	You have <span id = "tam">0</span> time, which boost coin gain by <span id = "teff">1</span>
 </div>
+</div>
 	<br>
+	<div id = "Upgrade">
 	<div id = "u1">
 <button id = "u1" class = "u" onclick = "buyU1()">&nbsp;&nbsp;&nbsp;&nbsp;Generators boost it Multiplier.&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br>Cost: 200 Coins<br><br>Purchased: <span id = "u1b">false</span></button><br> 
 <div id = "m1">
@@ -90,24 +99,26 @@
 	<div id = "u11">
 <button id = "u11" class = "u" onclick = "buyU11()">&nbsp;&nbsp;You can mastery 3 upgrades&nbsp;&nbsp;<br> at once.<br><br>Cost: 1e28 Coins<br><br>Purchased: <span id = "u11b">false</span></button> 
 	</div>
+</div>
+<div id = "Challenge">
 	<br><br><br>
 	<div id = "C1">
-		<br><br><br><br>
-        Challenge 1<br>Coin gain is raised to a power of 0.5.<br>Reward: Coin gain is raised to a power of 1.1.<br>In challenge: <span id = "inC1">false</span><br><br>
-        <button id = "C1" class = "C1" onclick = "inC1()">Goal: 1e5 Coins<br>Completed: <span id = "C1c">false</span></button>
+        <button id = "C1" class = "c" onclick = "inC1()">Challenge 1<br>Coin gain is raised to a power of 0.5.<br>Reward: Coin gain is raised to a power of 1.1.<br>In challenge: <span id = "inC1">false</span><br><br>Goal: 1e5 Coins<br>Completed: <span id = "C1c">false</span></button>
 	</div>
 	<div id = "C2">
-		<br><br><br><br>
-        Challenge 2<br>Booster has no effect.<br>Reward: Generators divide boosters cost.<br>In challenge: <span id = "inC2">false</span><br><br>
-        <button id = "C2" class = "C2" onclick = "inC2()">Goal: 2.5e6 Coins<br>Completed: <span id = "C2c">false</span></button>
+        <button id = "C2" class = "c" onclick = "inC2()">Challenge 2<br>Booster has no effect.<br>Reward: Generators divide boosters cost.<br>In challenge: <span id = "inC2">false</span><br><br>Goal: 2.5e6 Coins<br>Completed: <span id = "C2c">false</span></button>
 	</div>
 	<div id = "C3">
-		<br><br><br><br>
-        Challenge 3<br>All non mastered upgrade have no effect.<br>Reward: Auto buy Generators and unlock mastery upgrade, generators are cheaper.<br>In challenge: <span id = "inC3">false</span><br><br>
-        <button id = "C3" class = "C3" onclick = "inC3()">Goal: 3e5 Coins<br>Completed: <span id = "C3c">false</span></button>
+        <button id = "C3" class = "c" onclick = "inC3()">Challenge 3<br>All non mastered upgrade have no effect.<br>Reward: Auto buy Generators and unlock<br> mastery upgrade, generators are cheaper.<br>In challenge: <span id = "inC3">false</span><br><br>Goal: 3e5 Coins<br>Completed: <span id = "C3c">false</span></button>
 	</div>
-	<br><button class = "save" onclick = "save()">Save</button>
+	<div id = "C4">
+        <button id = "C4" class = "c" onclick = "inC4()">Challenge 4<br>You trapped in C1, C2 and C3.<br>Reward: You can complete previous<br> challenge more than once.<br>In challenge: <span id = "inC4">false</span><br><br>Goal: 2.5e6 Coins<br>Completed: <span id = "C4c">false</span></button>
+	</div>
+</div>
+<div id = "Options">
+	<button class = "save" onclick = "save()">Save</button>
 	<button class = "reset" onclick = "reset()">HARD RESET</button>
+</div>
     
     
     
