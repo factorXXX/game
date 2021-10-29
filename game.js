@@ -38,7 +38,7 @@ class Player {
         this.C3complete = false
         this.auto = false
         this.cap = false
-        this.cap2 = new OmegaNum(1)
+        this.cap2 = new OmegaNum(3)
   }
 }
 var game = new Player()
@@ -170,7 +170,10 @@ function buyU11() {
   if(game.c.gte(1e28)&&!game.u11bought){
   game.c= game.c.sub(1e28);
   game.u11bought=true
-
+game.u1m=false
+game.u2m=false
+game.u3m=false
+game.u4m=false
   }
 } 
 
@@ -192,7 +195,7 @@ function mU2() {
 if(game.u11bought)  game.cap2=game.cap2.plus(1)
   game.u2m=false
   }
-  else if(!game.cap&&game.cap2.gte(1)){
+  else if(!(game.cap&&game.cap2.gte(1))){
     if(!game.u11bought)game.cap=true
     game.u2m=true
     if(game.u11bought)  game.cap2=game.cap2.sub(1)

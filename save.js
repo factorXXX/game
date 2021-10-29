@@ -16,6 +16,7 @@ function save(){
     game.t = new OmegaNum(game.t)
     game.t1r = new OmegaNum(game.t1r)
     game.time = new OmegaNum(game.time)
+    game.cap2 = new OmegaNum(game.cap2)
 
   }
   function reset(){
