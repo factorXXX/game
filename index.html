@@ -15,11 +15,12 @@
 	<body>
 		<button class = "tab1" onclick="tab('Main')">Main</button>
 			<button class = "tab2" onclick="tab('Upgrade')">Upgrades</button>
+
       <button class = "tab3" onclick = "tab('Challenge')">Challenges</button>
 			<button class = "tab4" onclick="tab('Options')">Options</button>
 <br><br>
     <co class = "c1"> You have </co> <co class = "c1"> <span id = "C">10</span> </co><co class = "c1"> coins. </co>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.0.0.6
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.0.0.7
     <br>
 	<br>
 	<co class = "gt"> You are gaining  </co> <co class = "cps"> <span id = "cps">0</span> </co><co class = "cps"> coins per second. </co>
@@ -102,13 +103,13 @@
 </div>
 <div id = "Challenge">
 	<div id = "C1">
-        <button id = "C1" class = "c" onclick = "inC1()">Challenge 1<br>Coin gain is raised to a power of 0.5.<br>Reward: Coin gain is raised to a power of 1.1.<br>In challenge: <span id = "inC1">false</span><br><br>Goal: 1e5 Coins<br>Completed: <span id = "C1c">false</span></button>
+        <button id = "C1" class = "c" onclick = "inC1()">Challenge 1<br>Coin gain is raised to a power of 0.5.<br>Reward: Coin gain is raised to a power of <span id = "C1r">1.1</span>.<br>In challenge: <span id = "inC1">false</span><br><br>Goal: <span id = "C1g">1e5 Coins</span><br>Completed: <span id = "C1c">false</span></button>
 	</div>
 	<div id = "C2">
-        <button id = "C2" class = "c" onclick = "inC2()">Challenge 2<br>Booster has no effect.<br>Reward: Generators divide boosters cost.<br>In challenge: <span id = "inC2">false</span><br><br>Goal: 2.5e6 Coins<br>Completed: <span id = "C2c">false</span></button>
+        <button id = "C2" class = "c" onclick = "inC2()">Challenge 2<br>Booster has no effect.<br>Reward: Generators divide boosters cost.<br>In challenge: <span id = "inC2">false</span><br><br>Goal: <span id = "C2g">2.5e6 Coins</span><br>Completed: <span id = "C2c">false</span></button>
 	</div>
 	<div id = "C3">
-        <button id = "C3" class = "c" onclick = "inC3()">Challenge 3<br>All non mastered upgrade have no effect.<br>Reward: Auto buy Generators and unlock<br> mastery upgrade, generators are cheaper.<br>In challenge: <span id = "inC3">false</span><br><br>Goal: 3e5 Coins<br>Completed: <span id = "C3c">false</span></button>
+        <button id = "C3" class = "c" onclick = "inC3()">Challenge 3<br>All non mastered upgrade have no effect.<br>Reward: Auto buy Generators and unlock<br> mastery upgrade, generators are cheaper.<br>In challenge: <span id = "inC3">false</span><br><br>Goal: <span id = "C3g">3e5 Coins</span><br>Completed: <span id = "C3c">false</span></button>
 	</div>
 	<div id = "C4">
         <button id = "C4" class = "c" onclick = "inC4()">Challenge 4<br>You trapped in C1, C2 and C3.<br>Reward: You can complete previous challenge<br>  more than once. (not yet)<br>In challenge: <span id = "inC4">false</span><br><br>Goal: 2.5e6 Coins<br>Completed: <span id = "C4c">false</span></button>

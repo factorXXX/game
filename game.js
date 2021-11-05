@@ -1,3 +1,4 @@
+
 class Player {
   constructor() {
         this.c = new OmegaNum(10)
@@ -50,7 +51,9 @@ class Player {
   }
 }
 var game = new Player()
-
+function format(a){
+  return new OmegaNum(a).div(new OmegaNum(10).pow(new OmegaNum(a).logBase(10).floor())).times(1000).floor().div(1000)+"e"+new OmegaNum(a).logBase(10).floor()
+}
 function makeC(a) {
     game.c = game.c.add(a);
 }
@@ -90,17 +93,18 @@ function buyt() {
     game.u7bought=false
     game.u8bought=false
     game.u9bought=false
+    game.u10bought=false
+    game.u11bought=false
     game.u1m=false
     game.u2m=false
     game.u3m=false
     game.u4m=false
-    game.cap=false
-    game.C1complete=false
-    game.C2complete=false
-    game.C3complete=false   
+game.cap=false
+game.cap2=new OmegaNum(3)
     game.inC1=false
     game.inC2=false
     game.inC3=false
+    game.inC4=false
     game.auto=false
     game.t=game.t.add(1)
   
@@ -246,10 +250,25 @@ alert("You can't exit this challenge while you are in Challenge 4!")
   
   }
   else if(game.c.gte(1e5)&&game.inC1){
+    if(game.C4complete){
+      if(game.c.gte(game.C1goal)&&game.inC1){
+        game.c = new OmegaNum(10);
+        game.g1=new OmegaNum(0)
+        game.C1times=game.C1times.add(1)
+        game.inC1=false
+      }
+      else if(confirm("Are you sure you want to exit challenge early?")){
+        game.c = new OmegaNum(10);
+        game.g1=new OmegaNum(0)
+        game.inC1=false
+      }
+    }
+  else{
     game.c = new OmegaNum(10);
     game.g1=new OmegaNum(0)
     game.C1complete=true
     game.inC1=false
+  }
 
   }  
   else if(confirm("Are you sure you want to exit challenge early?")){ 
@@ -274,11 +293,25 @@ function inC2() {
   
   }
   else if(game.c.gte(2.5e6)&&game.inC2){
+    if(game.C4complete){
+      if(game.c.gte(game.C2goal)&&game.inC2){
+        game.c = new OmegaNum(10);
+        game.g1=new OmegaNum(0)
+        game.C2times=game.C2times.add(1)
+        game.inC2=false
+      }
+      else if(confirm("Are you sure you want to exit challenge early?")){
+        game.c = new OmegaNum(10);
+        game.g1=new OmegaNum(0)
+        game.inC2=false
+      }
+    }
+  else{
     game.c = new OmegaNum(10);
     game.g1=new OmegaNum(0)
     game.C2complete=true
     game.inC2=false
-
+  }
   }  
   else if(confirm("Are you sure you want to exit challenge early?")){ 
     game.c = new OmegaNum(10);
@@ -301,11 +334,25 @@ function inC3() {
   
   }
   else if(game.c.gte(3e5)&&game.inC3){
+    if(game.C4complete){
+      if(game.c.gte(game.C3goal)&&game.inC3){
+        game.c = new OmegaNum(10);
+        game.g1=new OmegaNum(0)
+        game.C3times=game.C3times.add(1)
+        game.inC3=false
+      }
+      else if(confirm("Are you sure you want to exit challenge early?")){
+        game.c = new OmegaNum(10);
+        game.g1=new OmegaNum(0)
+        game.inC3=false
+      }
+    }
+  else{
     game.c = new OmegaNum(10);
     game.g1=new OmegaNum(0)
     game.C3complete=true
     game.inC3=false
-
+  }
   }  
   else if(confirm("Are you sure you want to exit challenge early?")){ 
     game.c = new OmegaNum(10);
@@ -404,6 +451,7 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     if(!game.u11bought) document.getElementById('u11b').innerHTML="false"
     else document.getElementById('u11b').innerHTML="true"
 
+
     if(game.inC4) document.getElementById('inC1').innerHTML="Trapped"
     else if(!game.inC1) document.getElementById('inC1').innerHTML="false"
     else document.getElementById('inC1').innerHTML="true"
@@ -424,13 +472,24 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
 
     if(!game.C2complete) document.getElementById('C2c').innerHTML="false"
     else document.getElementById('C2c').innerHTML="true"
-
     
     if(!game.C3complete) document.getElementById('C3c').innerHTML="false"
     else document.getElementById('C3c').innerHTML="true"
 
     if(!game.C4complete) document.getElementById('C4c').innerHTML="false"
     else document.getElementById('C4c').innerHTML="true"
+
+    if(game.C4complete) document.getElementById('C1g').innerHTML=format(game.C1goal)+" coins<br>completion: "+game.C1times.add(1)
+    else document.getElementById('C1g').innerHTML="1e5 coins"
+
+    if(game.C4complete) document.getElementById('C2g').innerHTML=format(game.C2goal)+" coins<br>completion: "+game.C2times.add(1)
+    else document.getElementById('C2g').innerHTML="2.5e6 coins"
+
+    if(game.C4complete) document.getElementById('C3g').innerHTML=format(game.C3goal)+" coins<br>completion: "+game.C3times.add(1)
+    else document.getElementById('C3g').innerHTML="3e5 coins"
+
+    if(game.C4complete) document.getElementById('C1r').innerHTML=new OmegaNum(1.2).minus(new OmegaNum(0.5).pow(game.C1times).times(0.1))
+    else document.getElementById('C1r').innerHTML="1.1"
 
     if(!game.auto) document.getElementById('autoon').innerHTML="false"
     else document.getElementById('autoon').innerHTML="true"
@@ -531,8 +590,14 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     else     
     document.getElementById('C3').style.display = 'none';
 
+    if(game.C3complete||game.inC4) {
+      document.getElementById('C4').style.display = 'inline-block';
+    }
+    else     
+    document.getElementById('C4').style.display = 'none';
+
     if(game.u9bought) {
-      document.getElementById('hasu9').innerHTML=" Your timer also produce "+game.t.pow(2)+" time per second.";
+      document.getElementById('hasu9').innerHTML=" Your timer also produce "+game.tgain+" time per second.";
     }
     else     
     document.getElementById('hasu9').innerHTML="";
@@ -561,11 +626,6 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
     else     
     document.getElementById('auto').style.display = 'none';
 
-    if(game.u6bought) {
-      document.getElementById('tab3').style.display = 'inline-block';
-    }
-    else     
-    document.getElementById('tab3').style.display = 'none';
 
     if(game.C3complete) {document.getElementById('m').style.display = 'inline-block';} else document.getElementById('m').style.display = 'none';
     if(game.C3complete) {document.getElementById('m1').style.display = 'inline-block';} else document.getElementById('m1').style.display = 'none';
@@ -602,10 +662,12 @@ setInterval(function() {
     let Gscalepow=new OmegaNum(1.25)
     let base=new OmegaNum(1.5)
 
-    if(game.u4m&&game.u4bought) base=new OmegaNum(1.2)
+    if(game.u4m&&game.u4bought&&game.C3times.gte(1))base=new OmegaNum(1.19)
+  else  if(game.u4m&&game.u4bought) base=new OmegaNum(1.2)
   else  if(game.u8bought&&game.u4bought&&!game.inC3) base=new OmegaNum(1.225)
 
     if(game.C3complete)Gscalepow=new OmegaNum(1)
+
   else  if(game.u4bought&&!game.inC3) Gscalepow=new OmegaNum(1.1)
 
     game.Gscalepow=Gscalepow
@@ -616,13 +678,13 @@ setInterval(function() {
   let Gain=game.g1.times(game.g1m)
  Gain=Gain.times(game.timeeff)
  if(game.inC1) Gain=Gain.pow(0.5)
-  if(game.C1complete) Gain=Gain.pow(1.1)
+  if(game.C1complete) Gain=Gain.pow(new OmegaNum(1.2).minus(new OmegaNum(0.5).pow(game.C1times).times(0.1)))
 
   game.gain=Gain
     },1)
 setInterval(function() {
   let Req=new OmegaNum(10000).times(new OmegaNum(10).pow(game.b.pow(1.35)))
-  if(game.C2complete) Req=Req.div(game.g1.add(1))
+  if(game.C2complete) Req=Req.div((game.g1.add(1)).pow(game.C2times.add(1)))
   game.b1r=Req
     },1)
 
@@ -646,6 +708,11 @@ setInterval(function() {
   let eff=game.time.add(1).logBase(2).pow(pow).add(1)
 game.timeeff=eff
   },1)    
+  setInterval(function() {
+  game.C1goal=new OmegaNum(1e16).pow(game.C1times.pow(1.75).add(1))
+  game.C2goal=new OmegaNum(2.5e12).pow(game.C2times.pow(1.75).add(1))
+  game.C3goal=new OmegaNum(4e35).pow(game.C3times.pow(1.75).add(1))
+    },1)
 setInterval(function() {   
 save()
 },2500)
