@@ -1,9 +1,9 @@
 
 function save(){
-    localStorage.setItem("save key",JSON.stringify(game))
+    localStorage.setItem("boost",JSON.stringify(game))
   }
   function load(){
-    game = JSON.parse(localStorage.getItem("save key"))
+    game = localStorage.getItem("boost") ? JSON.parse(localStorage.getItem("boost")) : new Player()
     game.c = new OmegaNum(game.c)
     game.g1 = new OmegaNum(game.g1)
     game.g1c = new OmegaNum(game.g1c)
