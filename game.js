@@ -643,7 +643,7 @@ if(game.u9bought) game.time=game.time.add(game.tgain.times(0.04))
   else  if(game.u3bought&&!game.inC3) base=base.add(game.g1.add(1).log10().add(1))
   base=base.add(game.t.pow(1.6))
     game.base=base
-      },1)
+      },40)
 
 setInterval(function() {
 let m=new OmegaNum(1)
@@ -656,7 +656,7 @@ else if(game.u2bought&&game.u6bought&&!game.inC3) m=m.times(game.c.add(1).logBas
 else if(game.u2bought&&!game.inC3) m=m.times(game.c.add(1).log10().add(1))
 if(!game.inC2) m=m.times(new OmegaNum(game.base).pow(game.b.add(game.t.pow(0.8))))
 game.g1m=m
-  },1)
+  },40)
 
 setInterval(function() {
     let Gscalepow=new OmegaNum(1.25)
@@ -672,7 +672,7 @@ setInterval(function() {
 
     game.Gscalepow=Gscalepow
     game.Gbase=base
-      },1)
+      },40)
 
 setInterval(function() {
   let Gain=game.g1.times(game.g1m)
@@ -681,38 +681,38 @@ setInterval(function() {
   if(game.C1complete) Gain=Gain.pow(new OmegaNum(1.2).minus(new OmegaNum(0.5).pow(game.C1times).times(0.1)))
 
   game.gain=Gain
-    },1)
+    },40)
 setInterval(function() {
   let Req=new OmegaNum(10000).times(new OmegaNum(10).pow(game.b.pow(1.35)))
   if(game.C2complete) Req=Req.div((game.g1.add(1)).pow(game.C2times.add(1)))
   game.b1r=Req
-    },1)
+    },40)
 
  setInterval(function() {
     let Req=new OmegaNum(200).times(new OmegaNum(1.325).pow(game.t.pow(1.5)))
     game.t1r=Req
-        },1)
+        },40)
 setInterval(function() {
   let level=game.c.div(10).logBase(game.Gbase).add(1).floor()
   if(game.auto&&level.gte(game.g1)) game.g1=level
 
-    },1)
+    },40)
 setInterval(function() {
   let gain=game.t.pow(2)
   if(game.u10bought) gain=gain.times(game.b.add(1))
   game.tgain=gain
-    },1)
+    },40)
 setInterval(function() {
   let pow=new OmegaNum(1.25)
   if(game.u10bought) pow=new OmegaNum(2.2)
   let eff=game.time.add(1).logBase(2).pow(pow).add(1)
 game.timeeff=eff
-  },1)    
+  },40)    
   setInterval(function() {
   game.C1goal=new OmegaNum(1e16).pow(game.C1times.pow(1.75).add(1))
   game.C2goal=new OmegaNum(2.5e12).pow(game.C2times.pow(1.75).add(1))
   game.C3goal=new OmegaNum(4e35).pow(game.C3times.pow(1.75).add(1))
-    },1)
+    },40)
 setInterval(function() {   
 save()
 },2500)
