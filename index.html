@@ -1,34 +1,29 @@
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>???</title>
-</head>
+<html lang="en" dir="ltr" id="html">
+  <head>
+    <title>Play</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+     <script src="save.js" defer></script>
+    <script src="ExpantaNum.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12" ></script>
+  </head>
+  <body>
+    <div id="app">
+      You are on the level {{player.stage}} of the tower
+      <br><br><br>
+      Coin: {{player.coin}}<br>
+      HP: {{player.playerHP}}/{{playerHP()}}<br>
+      Attick: {{player.attick}}<br>
+      <br><br><br>
+      Entiry<br>
+      HP: {{player.entiryHP}}/{{entiryHP(player.stage)}}<br>
+      Attick: {{entiryATT(player.stage)}}<br>
+      <br><br><br><br>
 
-	<div>You have <span id="p">0</span> points</div>
-	<button onclick="p1()">points +1</button>
-    <button onclick="p2()">points x2</button>
-    <button onclick="p3()">points -1</button>
-    <button onclick="p4()">points /2</button>
-    <button onclick="p5()">reset points</button>
-    <button onclick="p6()">???</button>
-    <button onclick="p7()">Infinity</button>
-    <button onclick="p8()">NaN</button>
-    <button onclick="p9()">69420</button>
-    <button onclick="p10()">Rickrool</button>
-
-</body>
-<script>
-function p1() {document.getElementById("p").textContent = (document.getElementById("p").textContent*1+1)}
-function p2() {document.getElementById("p").textContent = (document.getElementById("p").textContent*2)}
-function p3() {document.getElementById("p").textContent = (document.getElementById("p").textContent*1-1)}
-function p4() {document.getElementById("p").textContent = (document.getElementById("p").textContent/2)}
-function p5() {document.getElementById("p").textContent = (document.getElementById("p").textContent=0)}
-function p6() {if(document.getElementById("p").textContent=="69"||document.getElementById("p").textContent=="420") return  document.write("nice")}
-function p7() {document.getElementById("p").textContent = (document.getElementById("p").textContent=1.8e308)}
-function p8() {document.getElementById("p").textContent = (document.getElementById("p").textContent*1+1.8e308*0)}
-function p9() {document.getElementById("p").textContent = (document.getElementById("p").textContent=69420)}
-function p10() {document.write("https://www.youtube.com/watch?v=dQw4w9WgXcQ")}
-</script>
+    <button @click="updateBackLevel()" class="skill" >Go to last level</button>
+      <br><br><br>
+    <button @click="skill(1)" class="skill" >Normal Attick</button>
+    <button @click="skill(2)" class="skill" >Attick Boost (WIP)</button>
+    </div>
+  </body>
 </html>
