@@ -4,3 +4,15 @@ button.skill{
     height:60px;
     background-color:#d43417
 }
+button.shop{
+    position:relative;
+    width:190px;
+    height:75px;
+    background-color:#d2df1a
+}
+button.skillActive{
+    position:relative;
+    width:130px;
+    height:60px;
+    background-color:#43d82f
+}

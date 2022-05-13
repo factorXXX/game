@@ -6,7 +6,9 @@ function start(){
     attick: E(5),
     entiryHP: E(10),
     playerHP: E(100),
-    coin:E(0)
+    coin:E(0),
+    buff:[],
+    shop:[null,E(0)]
   }
   return a
 }
